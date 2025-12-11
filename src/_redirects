@@ -1,1 +1,7 @@
-/* /index.html 200
+# /src/_redirects
+# Asegurar que la página principal no se redirecciona
+/ /index.html 200!
+
+# Mantener las redirecciones específicas
+/faq/* /faq/:splat.html 301
+/faq /faq.html 301

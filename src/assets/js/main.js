@@ -1,7 +1,7 @@
 // Cache DOM elements
 const DOMElements = {
     loader: document.querySelector('.preloader'),
-    navbar: document.querySelector(".navbar"),
+    navbar: document.querySelector("nav"),
     scrollToTop: document.getElementById("scrollToTop"),
     cookieBanner: document.getElementById("cookieConsent"),
     cookieAcceptBtn: document.getElementById("acceptCookiesBtn"),
@@ -11,7 +11,10 @@ const DOMElements = {
     lazyBackgrounds: document.querySelectorAll('[data-bg]'),
     modalButtons: document.querySelectorAll('[data-bs-toggle="modal"]'),
     navigationLinks: document.querySelectorAll('a[href^="#"]'),
-    mainContent: document.querySelector('main')
+    mainContent: document.querySelector('main'),
+    faqAccordion: document.querySelectorAll('.accordion-item'),
+    faqCategories: document.querySelectorAll('.category-card'),
+    relatedQuestions: document.querySelector('.related-questions')
 };
 
 // Enhanced utility functions
@@ -88,31 +91,52 @@ const observerOptions = {
     rootMargin: '50px',
 };
 
-// Enhanced lazy loading with separate observers
+// Enhanced lazy loading with separate observers - using arrow functions to preserve 'this' context
 const lazyLoading = {
-    imageObserver: new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                this.handleImageLoad(img);
-            }
-        });
-    }, observerOptions),
+    imageObserver: null,
+    backgroundObserver: null,
+    iframeObserver: null,
 
-    backgroundObserver: new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                this.handleBackgroundLoad(el);
-            }
+    // Initialize observers with proper 'this' binding
+    createObservers() {
+        this.imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    this.handleImageLoad(img);
+                }
+            });
+        }, observerOptions);
+
+        this.backgroundObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    this.handleBackgroundLoad(el);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        this.iframeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const iframe = entry.target;
+                    this.handleIframeLoad(iframe);
+                }
+            });
+        }, { 
+            threshold: 0,
+            rootMargin: '100px'
         });
-    }, { threshold: 0.1 }),
+    },
 
     handleImageLoad(img) {
         utils.safeExecute(() => {
             if (img.dataset.src) {
                 img.src = img.dataset.src;
-                this.imageObserver.unobserve(img);
+                if (this.imageObserver) {
+                    this.imageObserver.unobserve(img);
+                }
             }
         }, `Failed to load image: ${img.dataset.src}`);
     },
@@ -121,7 +145,9 @@ const lazyLoading = {
         utils.safeExecute(() => {
             if (element.dataset.bg) {
                 element.style.backgroundImage = `url(${element.dataset.bg})`;
-                this.backgroundObserver.unobserve(element);
+                if (this.backgroundObserver) {
+                    this.backgroundObserver.unobserve(element);
+                }
             }
         }, `Failed to load background: ${element.dataset.bg}`);
     },
@@ -130,25 +156,18 @@ const lazyLoading = {
         utils.safeExecute(() => {
             if (iframe.dataset.src) {
                 iframe.src = iframe.dataset.src;
-                this.iframeObserver.unobserve(iframe);
+                if (this.iframeObserver) {
+                    this.iframeObserver.unobserve(iframe);
+                }
             }
         }, `Failed to load iframe: ${iframe.dataset.src}`);
     },
 
-    iframeObserver: new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const iframe = entry.target;
-                this.handleIframeLoad(iframe);
-            }
-        });
-    }, { 
-        threshold: 0,
-        rootMargin: '100px' // Increased margin to load earlier
-    }),
-
     init() {
         utils.safeExecute(() => {
+            // Create observers with proper 'this' binding
+            this.createObservers();
+            
             // Native lazy loading check for images
             if (!('loading' in HTMLImageElement.prototype)) {
                 DOMElements.lazyImages.forEach(img => this.imageObserver.observe(img));
@@ -169,14 +188,14 @@ const lazyLoading = {
     },
 
     cleanup() {
-        this.imageObserver.disconnect();
-        this.backgroundObserver.disconnect();
-        this.iframeObserver.disconnect();
+        if (this.imageObserver) this.imageObserver.disconnect();
+        if (this.backgroundObserver) this.backgroundObserver.disconnect();
+        if (this.iframeObserver) this.iframeObserver.disconnect();
         DOMElements.sections.forEach(section => {
             section.removeAttribute('data-height-set');
         });
         window.removeEventListener('orientationchange', heightManager.handleOrientationChange);
-        performance.marks.clear();
+        if (performance.marks) performance.marks.clear();
     }
 };
 
@@ -200,6 +219,27 @@ const scrollManager = {
 
         DOMElements.scrollToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Handle FAQ accordion open/close animations
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const content = document.querySelector(this.getAttribute('data-bs-target'));
+                if (content) {
+                    // Scroll into view if needed
+                    setTimeout(() => {
+                        if (this.getAttribute('aria-expanded') === 'true') {
+                            const navHeight = document.querySelector('nav').offsetHeight;
+                            const topPosition = content.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                            window.scrollTo({
+                                top: topPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 300);
+                }
+            });
         });
     },
 
@@ -253,6 +293,42 @@ const heightManager = {
     }, 250)
 };
 
+// Add navbar toggler handling
+const navbarHandler = {
+    init() {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbar = document.querySelector('.navbar');
+        
+        if (!navbarToggler || !navbar) {
+            utils.logWarning("Navbar toggler elements not found");
+            return;
+        }
+        
+        navbarToggler.addEventListener('click', function() {
+            // Check if menu is being expanded or collapsed
+            if (navbar.classList.contains('menu-open')) {
+                navbar.classList.remove('menu-open');
+            } else {
+                navbar.classList.add('menu-open');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNavbar = navbar.contains(event.target);
+            const navbarCollapse = navbar.querySelector('.navbar-collapse');
+            
+            if (navbarCollapse) {
+                const isExpanded = navbarCollapse.classList.contains('show');
+                
+                if (!isClickInsideNavbar && isExpanded) {
+                    navbarToggler.click();
+                }
+            }
+        });
+    }
+};
+
 // Main initialization with enhanced error handling
 document.addEventListener("DOMContentLoaded", function() {
     // Critical initialization
@@ -265,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Initialize core functionality first
             heightManager.setPageHeights();
             scrollManager.init();
+            navbarHandler.init(); // Initialize navbar toggler functionality
 
             // Handle loader immediately if document is ready
             if (DOMElements.loader) {
@@ -466,3 +543,33 @@ const cookieConsent = {
         }, 300);
     }
 };
+
+// Service Worker Registration for PWA support
+const serviceWorkerManager = {
+    init() {
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('[La Aldea] ServiceWorker registered:', registration.scope);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    console.log('[La Aldea] New content available, refresh to update');
+                                }
+                            });
+                        });
+                    })
+                    .catch((error) => {
+                        console.warn('[La Aldea] ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    }
+};
+
+// Initialize service worker
+serviceWorkerManager.init();

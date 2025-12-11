@@ -36,7 +36,7 @@
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, no-cache, must-revalidate"
 
 [[headers]]
   for = "/*.css"
@@ -72,9 +72,41 @@
     Cache-Control = "public, max-age=3600"
     Content-Type = "text/plain"
 
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Content-Type = "application/javascript"
+    Service-Worker-Allowed = "/"
+
+# Regla específica para la raíz - ALTA PRIORIDAD
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = true
+
+# Mantener reglas FAQ
+[[redirects]]
+  from = "/faq/*"
+  to = "/faq/:splat.html"
+  status = 301
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 301
+
+# Regla comodín al final
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/:splat.html"
   status = 200
 
 [[plugins]]

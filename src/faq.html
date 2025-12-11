@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas Frecuentes sobre Sistemas de Riego e Instalaciones Hidráulicas | La Aldea - Tala, Uruguay</title>
-    <meta name="description" content="Encuentra respuestas a todas tus preguntas sobre bombas de agua, sistemas de riego, productos químicos, herramientas y más. Expertos en soluciones hidráulicas en Tala, Canelones.">
+    <title>FAQ: Bombas de Agua y Sistemas de Riego | La Aldea Tala</title>
+    <meta name="description" content="Guías sobre bombas de agua, riego por goteo, aspersión, instalaciones hidráulicas y filtración. Expertos en Tala, Canelones.">
     <meta name="keywords" content="FAQ La Aldea, preguntas frecuentes, sistemas de riego, bombas de agua, instalaciones hidráulicas, droguería industrial, herramientas, piscinas, Tala, Canelones, Uruguay">
     
     <!-- Open Graph Meta Tags -->
@@ -17,7 +17,11 @@
     <meta property="og:image" content="https://www.laaldeatala.com.uy/assets/images/og-image.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:updated_time" content="2024-03-14T00:00:00+00:00">
+    <meta property="og:updated_time" content="2025-12-10T00:00:00+00:00">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -25,6 +29,7 @@
     <meta name="twitter:description" content="Respuestas a preguntas frecuentes sobre sistemas de riego, bombas de agua, y más. Expertos en soluciones hidráulicas.">
     <meta name="twitter:image" content="https://www.laaldeatala.com.uy/assets/images/og-image.webp">
     
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
     <link rel=icon type=image/x-icon href=assets/images/favicon/favicon.ico>
     <link rel=icon type=image/svg+xml href=assets/images/favicon/favicon.svg>
     <link rel=icon type=image/png sizes=96x96 href=assets/images/favicon/favicon-96x96.png>
@@ -47,9 +52,27 @@
     <link rel="preload" href="assets/images/laaldeaedificio.webp" as="image" fetchpriority="high">
     <link rel="preload" href="assets/images/logo.webp" as="image" type="image/webp" fetchpriority="high" importance="high">
     <link rel="preload" href="assets/css/faq.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="preconnect" href="/" crossorigin>
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+    <style>
+        .fas, .fab {
+          font-display: swap;
+          /* Fallback icon dimensions to prevent shift */
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+        }
+
+        [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+    </style>
 
     <!-- Non-critical CSS with async loading -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
@@ -170,8 +193,8 @@
                 >
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Abrir menú de navegación">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -205,6 +228,12 @@
                         <a class="nav-link" href="#piscinas">
                             <i class="fas fa-swimming-pool"></i>
                             <span>Piscinas y Filtros</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#renovables">
+                            <i class="fas fa-solar-panel"></i>
+                            <span>Renovables</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -283,6 +312,12 @@
                             <a href="#piscinas" class="category-card">
                                 <i class="fas fa-swimming-pool"></i>
                                 <h3>Piscinas y Filtración</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <a href="#renovables" class="category-card">
+                                <i class="fas fa-solar-panel"></i>
+                                <h3>Energías Renovables</h3>
                             </a>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -532,6 +567,61 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pool3">
+                                ¿Cómo realizar el mantenimiento completo de una piscina?
+                            </button>
+                        </h3>
+                        <div id="pool3" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>El mantenimiento de una piscina incluye filtración, tratamiento químico, limpieza regular y control del balance del agua para garantizar un ambiente seguro y cristalino.</p>
+                                <a href="faq/mantenimiento-piscinas.html" class="btn btn-outline-primary btn-sm">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Energías Renovables Section -->
+        <section id="renovables" class="faq-section">
+            <div class="container">
+                <h2>Energía Solar para Riego</h2>
+                <div class="accordion" id="accordionRenewable">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#renewable1">
+                                ¿Qué soluciones de energía solar para riego ofrecen?
+                            </button>
+                        </h3>
+                        <div id="renewable1" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <p>Ofrecemos soluciones de energía solar enfocadas en sistemas hidráulicos y de riego:</p>
+                                <ul>
+                                    <li><strong>Bombas solares</strong>: De superficie, sumergibles y de presión para riego y bebederos.</li>
+                                    <li><strong>Paneles solares</strong>: Monocristalinos y policristalinos para alimentar bombas.</li>
+                                    <li><strong>Controladores</strong>: Reguladores MPPT para optimizar el rendimiento.</li>
+                                    <li><strong>Accesorios</strong>: Cables solares, conectores, estructuras de montaje.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#renewable2">
+                                ¿Cómo funciona un sistema de bombeo solar?
+                            </button>
+                        </h3>
+                        <div id="renewable2" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <p>Los paneles generan electricidad que alimenta directamente la bomba. No se necesitan baterías - el agua se almacena en tanques para usar cuando no hay sol. Ideal para campos sin tendido eléctrico.</p>
+                                <a href="faq/energias-renovables.html" class="btn btn-outline-primary btn-sm">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -549,7 +639,7 @@
                         </h3>
                         <div id="general1" class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <p>Con más de 25 años de experiencia, La Aldea se ha consolidado como referente en soluciones hidráulicas y agrícolas en Uruguay:</p>
+                                <p>Con más de 25 años de experiencia, La Aldea se ha consolidado como referente en soluciones hidráulicas y agrícolas en Uruguay</p>
                                 <p>A lo largo de nuestra historia, hemos ayudado a muchos productores agrícolas a optimizar sus sistemas de riego y mejorar su productividad, consolidándonos como un aliado estratégico del sector agropecuario en Canelones y alrededores.</p>
                             </div>
                         </div>
@@ -608,16 +698,16 @@
 
         <section id="contact" class="contact-section py-5">
             <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12 text-center" data-aos="fade-up">
-                        <h2 class="section-title">Contáctanos</h2>
-                        <div class="section-divider"></div>
+                <div class="row">
+                    <div class="col-12 text-center" data-aos=fade-up>
+                        <h2 class=section-title>Contáctanos</h2>
+                        <div class=section-divider></div>
                     </div>
                 </div>
-                <div class="row">
+                <div class=row>
                     
-                    <div class="col-lg-6" data-aos="fade-right">
-                        <div class="contact-form-wrapper">
+                    <div class=col-lg-6 data-aos=fade-right>
+                        <div class=contact-form-wrapper>
                             <form id="contact-form" action="https://formspree.io/f/mbldypgk" method="POST" novalidate>
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nombre</label>
@@ -648,42 +738,42 @@
                     </div>
         
                     
-                    <div class="col-lg-6" data-aos="fade-left">
+                    <div class=col-lg-6 data-aos=fade-left>
                         <div class="contact-info mb-4">
-                            <div class="info-card">
+                            <div class=info-card>
                                 <i class="fas fa-phone"></i>
                                 <div>
-                                    <h3 class="h4"> Teléfono</h3>
+                                    <h3 class=h4> Teléfono</h3>
                                     <p>4315 4393</p>
                                 </div>
                             </div>
                             <div class="info-card whatsapp-card">
                                 <i class="fab fa-whatsapp"></i>
                                 <div>
-                                    <h3 class="h4">WhatsApp</h3>
-                                    <a href="https://wa.me/59892744725" class="btn btn-success" target="_blank">
+                                    <h3 class=h4>WhatsApp</h3>
+                                    <a href=https://wa.me/59892744725 class="btn btn-success" target=_blank rel="noopener">
                                         98 92 744 725
                                     </a>
                                 </div>
                             </div>
-                            <div class="info-card">
+                            <div class=info-card>
                                 <i class="fas fa-clock"></i>
                                 <div>
-                                    <h3 class="h4"> Horario</h3>
+                                    <h3 class=h4> Horario</h3>
                                     <p>Lunes - Viernes: 8:00 - 12:00 y 14:00 - 18:00 </p>
                                     <p>Sábado: 8:30 - 12:00</p>
                                 </div>
                             </div>
-                            <div class="info-card">
+                            <div class=info-card>
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
-                                    <h3 class="h4">Ubicación</h3>
+                                    <h3 class=h4>Ubicación</h3>
                                     <p>Tala, Canelones, Uruguay</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="map-container" id="mapContainer">
-                            <img src="assets/images/map-static.webp" alt="La Aldea Location Map" loading="lazy" width="600" height="400" class="static-map" fetchpriority="low" referrerpolicy="no-referrer-when-downgrade">
+                        <div class=map-container id=mapContainer>
+                            <img src="assets/images/map-static.webp" alt="La Aldea Location Map" loading=lazy width=564 height=589 class=static-map fetchpriority=low referrerpolicy="no-referrer-when-downgrade">
                         </div>
                     </div>
                 </div>
@@ -698,11 +788,11 @@
                     <img src="assets/images/logo.webp" srcset="assets/images/logo.webp 300w" alt="La Aldea Logo" height="40" width="163" class="mb-3" loading="lazy" decoding="async">
                     <p>Tu socio de confianza en soluciones agrícolas y más</p>
                     <div class="social-media">
-                        <a href="https://www.facebook.com/profile.php?id=61561171162882&locale=es_LA" target="_blank" class="social-link" aria-label="Visitar página de Facebook de La Aldea">
+                        <a href="https://www.facebook.com/profile.php?id=61561171162882&locale=es_LA" target="_blank" rel="noopener" class="social-link" aria-label="Visitar página de Facebook de La Aldea">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                             <span class="visually-hidden">Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/laaldeatala/" target="_blank" class="social-link" aria-label="Visitar perfil de Instagram de La Aldea">
+                        <a href="https://www.instagram.com/laaldeatala/" target="_blank" rel="noopener" class="social-link" aria-label="Visitar perfil de Instagram de La Aldea">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                             <span class="visually-hidden">Instagram</span>
                         </a>
@@ -730,7 +820,7 @@
                     <div class="review-card">
                         <h3 class="review-title">¿Satisfecho con nuestro servicio?</h3>
                         <p>Déjanos tu opinión en Google</p>
-                        <a href="https://g.page/r/CWOPBH-X6sYFEBM/review" class="btn btn-primary" target="_blank">
+                        <a href="https://g.page/r/CWOPBH-X6sYFEBM/review" class="btn btn-primary" target="_blank" rel="noopener">
                             <i class="fas fa-star me-2"></i>Calificar en Google
                         </a>
                     </div>
@@ -743,8 +833,8 @@
         </div>
     </footer>
 
-    <button id="scrollToTop" class="scroll-to-top">
-        <i class="fas fa-arrow-up"></i>
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script src="assets/js/main.js"></script>
@@ -779,6 +869,30 @@
                 
                 lastScroll = currentScroll;
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Add class after content is rendered
+          setTimeout(() => {
+            document.documentElement.classList.add('aos-initialized');
+          }, 100);
+        });
+    </script>
+
+    <script>
+        // Pre-initialize Bootstrap components to prevent layout shifts
+        document.addEventListener('DOMContentLoaded', function() {
+          // Force layout calculation early
+          document.body.offsetHeight;
+          
+          // Initialize all accordions immediately to prevent shifts
+          const accordionElements = document.querySelectorAll('.accordion-collapse');
+          accordionElements.forEach(collapse => {
+            // Create empty Bootstrap collapse instance
+            new bootstrap.Collapse(collapse, {toggle: false});
+          });
         });
     </script>
 </body>
