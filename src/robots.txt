@@ -42,4 +42,4 @@ Allow: /llms.txt
 Allow: /
 
 # Sitemap declaration
-Sitemap: https://www.laaldeatala.com.uy/sitemap.xml
+Sitemap: https://laaldeatala.com.uy/sitemap.xml

@@ -14,7 +14,7 @@ La Aldea es un negocio local especializado en sistemas de riego, bombas de agua,
 - Teléfono: +598 92 744 725
 - Teléfono fijo: 4315 4393
 - WhatsApp: https://wa.me/59892744725
-- Sitio web: https://www.laaldeatala.com.uy
+- Sitio web: https://laaldeatala.com.uy
 - Facebook: https://www.facebook.com/profile.php?id=61561171162882
 - Instagram: https://www.instagram.com/laaldeatala/
 
@@ -132,9 +132,9 @@ Idioma principal: Español (Uruguay)
 Ubicación: Uruguay (es-UY)
 
 ## Estructura del Sitio Web
-- Inicio: https://www.laaldeatala.com.uy/
-- Preguntas Frecuentes: https://www.laaldeatala.com.uy/faq.html
-- Política de Privacidad: https://www.laaldeatala.com.uy/privacy-policy.html
+- Inicio: https://laaldeatala.com.uy/
+- Preguntas Frecuentes: https://laaldeatala.com.uy/faq
+- Política de Privacidad: https://laaldeatala.com.uy/privacy-policy
 
 ## Última Actualización
 Diciembre 2025

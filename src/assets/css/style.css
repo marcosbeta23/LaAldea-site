@@ -299,6 +299,10 @@ body {
 }
 
 /* Services Section */
+.services-section {
+    background-color: var(--light-blue);
+}
+
 .service-banner {
     border-radius: 15px;
     overflow: hidden;
@@ -359,6 +363,21 @@ body {
     .service-content p {
         font-size: 1rem;
     }
+}
+
+/* Services Keywords Section */
+.service-link {
+    display: block;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.service-link:hover {
+    transform: translateY(-5px);
+}
+
+.service-link i {
+    display: block;
 }
 
 /* products Section */
@@ -1052,7 +1071,7 @@ a.btn-whatsapp[href*="wa.me"]:hover {
 
 /* Partners Section Base Styles */
 .partners-section {
-    background-color: var(--light-bg);
+    background-color: white;
     padding: 4rem 0;
 }
 
