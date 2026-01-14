@@ -2,6 +2,28 @@
 # Asegurar que la página principal no se redirecciona
 / /index.html 200!
 
+# Keyword-rich URL redirects for SEO
+/sistemas-riego /faq/diseno-riego.html 301
+/sistemas-de-riego /faq/diseno-riego.html 301
+/riego-agricola /faq/diseno-riego.html 301
+/bombas-agua /faq/tipos-bombas.html 301
+/bombas-de-agua /faq/tipos-bombas.html 301
+/seleccion-bombas /faq/seleccion-bombas.html 301
+/instalaciones-hidraulicas /faq/instalaciones-hidraulicas.html 301
+/instalaciones-hidraulicas-rurales /faq/instalaciones-hidraulicas.html 301
+/mantenimiento-piscinas /faq/mantenimiento-piscinas.html 301
+/riego-solar /faq/energias-renovables.html 301
+/bombas-solares /faq/energias-renovables.html 301
+/energia-solar /faq/energias-renovables.html 301
+/filtros-agua /faq/sistemas-filtracion.html 301
+/filtracion-agua /faq/sistemas-filtracion.html 301
+/herramientas-rurales /faq/seleccion-herramientas.html 301
+/herramientas-agricolas /faq/seleccion-herramientas.html 301
+/riego-por-goteo /faq/beneficios-riego.html 301
+/riego-aspersion /faq/beneficios-riego.html 301
+/productos-quimicos /faq/seguridad-quimicos.html 301
+/drogueria-agricola /faq/seguridad-quimicos.html 301
+
 # Mantener las redirecciones específicas
 /faq/* /faq/:splat.html 301
 /faq /faq.html 301
