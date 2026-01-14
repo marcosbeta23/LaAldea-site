@@ -829,6 +829,26 @@ section:nth-child(even) {
     #contact-form {
         min-width: 270px;
     }
+
+    /* Mobile modal adjustments */
+    .modal-product .modal-dialog {
+        margin: 0.5rem !important;
+        max-height: calc(100vh - 1rem) !important;
+    }
+
+    .modal-product .modal-body {
+        padding: 1rem !important;
+    }
+
+    .modal-product .btn-container {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+
+    .modal-product .btn-container .btn {
+        width: 100% !important;
+        padding: 0.75rem !important;
+    }
 }
 
 /* iOS specific fixes */
@@ -850,11 +870,20 @@ section:nth-child(even) {
 }
 
 /* Product Modal Styles - Fixed colors (no CSS variables) */
+.modal-product .modal-dialog {
+    margin: 1.75rem auto !important;
+    max-height: calc(100vh - 3.5rem) !important;
+    display: flex !important;
+}
+
 .modal-product .modal-content {
     border: none !important;
     border-radius: 15px !important;
     overflow: hidden !important;
     box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 100% !important;
 }
 
 .modal-product .modal-header {
@@ -862,6 +891,7 @@ section:nth-child(even) {
     color: white !important;
     border-bottom: none !important;
     padding: 1.25rem 1.5rem !important;
+    flex-shrink: 0 !important;
 }
 
 .modal-product .modal-header .modal-title {
@@ -893,6 +923,9 @@ section:nth-child(even) {
 .modal-product .modal-body {
     padding: 1.5rem !important;
     background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%) !important;
+    overflow-y: auto !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
 }
 
 .modal-product .product-image-container {

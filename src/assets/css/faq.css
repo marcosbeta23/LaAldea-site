@@ -151,6 +151,35 @@ body {
     gap: 0.5rem;
 }
 
+/* Hero Social Links */
+.hero-social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 123, 255, 0.1);
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.hero-social-icon:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
 .breadcrumb-item {
     display: flex;
     align-items: center;
