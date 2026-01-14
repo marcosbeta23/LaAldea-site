@@ -109,6 +109,34 @@
             transform: translateZ(0);
             contain: layout style;
         }
+        
+        .hero-social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .hero-social-icon:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            color: white;
+        }
     </style>
 
     <link rel=canonical href=https://laaldeatala.com.uy>
@@ -342,6 +370,14 @@
                         <a href="#about" class="btn btn-outline-light btn-lg px-5 py-3 mt-3">
                             Conocenos <i class="fas fa-arrow-right ms-2"></i>
                         </a>
+                        <div class="hero-social-links mt-3" data-aos="fade-up" data-aos-delay="300">
+                            <a href="https://www.instagram.com/laaldeatala/" target="_blank" rel="noopener noreferrer" class="hero-social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61561171162882&locale=es_LA" target="_blank" rel="noopener noreferrer" class="hero-social-icon" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -790,6 +826,13 @@
                         <div class=map-container id=mapContainer>
                             <img src="assets/images/map-static.webp" alt="La Aldea Location Map" loading=lazy width=564 height=589 class=static-map fetchpriority=low referrerpolicy="no-referrer-when-downgrade">
                         </div>
+                        <div class="review-card mt-4" data-aos="fade-up">
+                            <h3 class="h5 mb-3">¿Satisfecho con nuestro servicio?</h3>
+                            <p class="mb-3">Déjanos tu opinión en Google</p>
+                            <a href="https://search.google.com/local/writereview?placeid=ChIJt2gecA1roJURY48Ef5fqxgU" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Calificar La Aldea en Google">
+                                <i class="fas fa-star me-2" aria-hidden="true"></i>Calificar en Google
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -835,23 +878,6 @@
                         <li><a href="faq/mantenimiento-piscinas.html">Mantenimiento de Piscinas</a></li>
                         <li><a href="faq/energias-renovables.html">Energías Renovables</a></li>
                     </ul>
-                </div>
-                    <h3 class=footer-title>Horario de Atención</h3>
-                    <ul class=footer-hours>
-                        <li>Lunes a Viernes: 8:00 - 12:00 y 14:00 - 18:00</li>
-                        <li>Sábado: 8:30 - 12:00</li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <div class=review-card>
-                        <h3 class=review-title>¿Satisfecho con nuestro servicio?</h3>
-                        <p>Déjanos tu opinión en Google</p>
-                        <a href="https://search.google.com/local/writereview?placeid=ChIJt2gecA1roJURY48Ef5fqxgU" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Calificar La Aldea en Google">
-                            <i class="fas fa-star me-2" aria-hidden="true"></i>Calificar en Google
-                        </a>
-                    </div>
-                </div>
             </div>
             <hr class=footer-divider>
             <div class=footer-bottom>
